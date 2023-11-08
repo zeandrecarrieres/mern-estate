@@ -162,7 +162,7 @@ export default function Profile() {
   };
   return (
     <div className='p-3 max-w-lg mx-auto'>
-      <h1 className='text-3xl font-semibold text-center my-7'>Profile</h1>
+      <h1 className='text-3xl font-semibold text-center my-7'>Perfil</h1>
       <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
         <input
           onChange={(e) => setFile(e.target.files[0])}
@@ -180,19 +180,19 @@ export default function Profile() {
         <p className='text-sm self-center'>
           {fileUploadError ? (
             <span className='text-red-700'>
-              Error Image upload (image must be less than 2 mb)
+              Erro ao subir imagem (a imagem precisa ter menos de 2 mb)
             </span>
           ) : filePerc > 0 && filePerc < 100 ? (
             <span className='text-slate-700'>{`Uploading ${filePerc}%`}</span>
           ) : filePerc === 100 ? (
-            <span className='text-green-700'>Image successfully uploaded!</span>
+            <span className='text-green-700'>Upload da imagem com sucesso!</span>
           ) : (
             ''
           )}
         </p>
         <input
           type='text'
-          placeholder='username'
+          placeholder='usuário'
           defaultValue={currentUser.username}
           id='username'
           className='border p-3 rounded-lg'
@@ -208,7 +208,7 @@ export default function Profile() {
         />
         <input
           type='password'
-          placeholder='password'
+          placeholder='senha'
           onChange={handleChange}
           id='password'
           className='border p-3 rounded-lg'
@@ -217,13 +217,13 @@ export default function Profile() {
           disabled={loading}
           className='bg-slate-700 text-white rounded-lg p-3 uppercase hover:opacity-95 disabled:opacity-80'
         >
-          {loading ? 'Loading...' : 'Update'}
+          {loading ? 'Atualizando...' : 'Atualizar'}
         </button>
         <Link
           className='bg-green-700 text-white p-3 rounded-lg uppercase text-center hover:opacity-95'
           to={'/create-listing'}
         >
-          Create Listing
+          Adicionar Imóvel
         </Link>
       </form>
       <div className='flex justify-between mt-5'>
@@ -231,19 +231,19 @@ export default function Profile() {
           onClick={handleDeleteUser}
           className='text-red-700 cursor-pointer'
         >
-          Delete account
+          Excluir conta
         </span>
         <span onClick={handleSignOut} className='text-red-700 cursor-pointer'>
-          Sign out
+          Sair
         </span>
       </div>
 
       <p className='text-red-700 mt-5'>{error ? error : ''}</p>
       <p className='text-green-700 mt-5'>
-        {updateSuccess ? 'User is updated successfully!' : ''}
+        {updateSuccess ? 'Usuário atualizado com sucesso!' : ''}
       </p>
       <button onClick={handleShowListings} className='text-green-700 w-full'>
-        Show Listings
+        Listar Imóveis
       </button>
       <p className='text-red-700 mt-5'>
         {showListingsError ? 'Error showing listings' : ''}
@@ -252,7 +252,7 @@ export default function Profile() {
       {userListings && userListings.length > 0 && (
         <div className='flex flex-col gap-4'>
           <h1 className='text-center mt-7 text-2xl font-semibold'>
-            Your Listings
+            Seus Imóveis
           </h1>
           {userListings.map((listing) => (
             <div
@@ -274,15 +274,16 @@ export default function Profile() {
               </Link>
 
               <div className='flex flex-col item-center'>
+              <Link to={`/update-listing/${listing._id}`}>
+                  <button className='text-green-700'>Alterar</button>
+                </Link>
                 <button
                   onClick={() => handleListingDelete(listing._id)}
-                  className='text-red-700 uppercase'
+                  className='text-red-700 font-bold'
                 >
-                  Delete
+                  Excluir
                 </button>
-                <Link to={`/update-listing/${listing._id}`}>
-                  <button className='text-green-700 uppercase'>Edit</button>
-                </Link>
+               
               </div>
             </div>
           ))}

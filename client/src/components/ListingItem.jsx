@@ -29,20 +29,20 @@ export default function ListingItem({ listing }) {
           <p className='text-slate-500 mt-2 font-semibold '>
             $
             {listing.offer
-              ? listing.discountPrice.toLocaleString('en-US')
-              : listing.regularPrice.toLocaleString('en-US')}
-            {listing.type === 'rent' && ' / month'}
+              ? listing.discountPrice.toLocaleString('pt-BR')
+              : listing.regularPrice.toLocaleString('pt-BR')}
+            {listing.type === 'rent' && ' / mês'}
           </p>
           <div className='text-slate-700 flex gap-4'>
             <div className='font-bold text-xs'>
               {listing.bedrooms > 1
-                ? `${listing.bedrooms} beds `
-                : `${listing.bedrooms} bed `}
+                ? `${listing.bedrooms} quartos `
+                : `${listing.bedrooms} quarto `}
             </div>
             <div className='font-bold text-xs'>
               {listing.bathrooms > 1
-                ? `${listing.bathrooms} baths `
-                : `${listing.bathrooms} bath `}
+                ? `${listing.bathrooms} banheiros `
+                : `${listing.bathrooms} banheiro `}
             </div>
           </div>
         </div>
