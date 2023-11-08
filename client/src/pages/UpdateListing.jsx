@@ -178,7 +178,7 @@ export default function CreateListing() {
         <div className='flex flex-col gap-4 flex-1'>
           <input
             type='text'
-            placeholder='Name'
+            placeholder='Título'
             className='border p-3 rounded-lg'
             id='name'
             maxLength='62'
@@ -189,7 +189,7 @@ export default function CreateListing() {
           />
           <textarea
             type='text'
-            placeholder='Description'
+            placeholder='Descrição'
             className='border p-3 rounded-lg'
             id='description'
             required
@@ -198,7 +198,7 @@ export default function CreateListing() {
           />
           <input
             type='text'
-            placeholder='Address'
+            placeholder='Endereço'
             className='border p-3 rounded-lg'
             id='address'
             required
@@ -214,7 +214,7 @@ export default function CreateListing() {
                 onChange={handleChange}
                 checked={formData.type === 'sale'}
               />
-              <span>Sell</span>
+              <span>Venda</span>
             </div>
             <div className='flex gap-2'>
               <input
@@ -224,7 +224,7 @@ export default function CreateListing() {
                 onChange={handleChange}
                 checked={formData.type === 'rent'}
               />
-              <span>Rent</span>
+              <span>Locação</span>
             </div>
             <div className='flex gap-2'>
               <input
@@ -234,7 +234,7 @@ export default function CreateListing() {
                 onChange={handleChange}
                 checked={formData.parking}
               />
-              <span>Parking spot</span>
+              <span>Garagem</span>
             </div>
             <div className='flex gap-2'>
               <input
@@ -244,7 +244,7 @@ export default function CreateListing() {
                 onChange={handleChange}
                 checked={formData.furnished}
               />
-              <span>Furnished</span>
+              <span>Mobiliada</span>
             </div>
             <div className='flex gap-2'>
               <input
@@ -254,7 +254,7 @@ export default function CreateListing() {
                 onChange={handleChange}
                 checked={formData.offer}
               />
-              <span>Offer</span>
+              <span>Oferta</span>
             </div>
           </div>
           <div className='flex flex-wrap gap-6'>
@@ -317,7 +317,7 @@ export default function CreateListing() {
                 <div className='flex flex-col items-center'>
                   <p>Valor com desconto</p>
                   {formData.type === 'rent' && (
-                    <span className='text-xs'>($ / month)</span>
+                    <span className='text-xs'>($ / mês)</span>
                   )}
                 </div>
               </div>
